@@ -176,8 +176,10 @@ body {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     opacity: 0.1;
     z-index: 1;
+    animation: patternPulse 8s ease-in-out infinite;
 }
 
+/* Enhanced image styling with floating shadow */
 .profile-image {
     position: relative;
     width: 100%;
@@ -185,6 +187,101 @@ body {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     z-index: 2;
+    animation: imageFloat 6s ease-in-out infinite;
+}
+
+/* Floating shadow effect */
+.image-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 20px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.15) 0%,
+        rgba(0, 0, 0, 0.01) 80%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    filter: blur(5px);
+    z-index: 1;
+    animation: shadowFloat 6s ease-in-out infinite;
+    border-radius: 50%;
+}
+
+/* Floating animations */
+@keyframes imageFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.01);
+    }
+}
+
+@keyframes shadowFloat {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) scale(0.75);
+        opacity: 0.5;
+    }
+}
+
+/* Add subtle parallax effect on mouse move */
+.hero-image {
+    position: relative;
+    perspective: 1000px;
+}
+
+.image-wrapper {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+}
+
+/* Enhance background pattern animation */
+.background-pattern {
+    animation: patternPulse 8s ease-in-out infinite;
+}
+
+@keyframes patternPulse {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.1;
+    }
+    50% {
+        transform: scale(1.05) rotate(2deg);
+        opacity: 0.15;
+    }
+}
+
+/* Responsive adjustments for animations */
+@media (prefers-reduced-motion: reduce) {
+    .profile-image,
+    .image-wrapper::after,
+    .background-pattern {
+        animation: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .image-wrapper::after {
+        width: 70%;
+        height: 15px;
+    }
+
+    @keyframes imageFloat {
+        0%, 100% {
+            transform: translateY(0) scale(1);
+        }
+        50% {
+            transform: translateY(-15px) scale(1.01);
+        }
+    }
 }
 
 /* Add animation classes */
