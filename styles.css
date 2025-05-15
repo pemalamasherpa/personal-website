@@ -176,7 +176,7 @@ body {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     opacity: 0.1;
     z-index: 1;
-    animation: patternPulse 8s ease-in-out infinite;
+    animation: patternPulse 15s ease-in-out infinite;
 }
 
 /* Enhanced image styling with floating shadow */
@@ -187,7 +187,7 @@ body {
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     z-index: 2;
-    animation: imageFloat 6s ease-in-out infinite;
+    animation: imageFloat 10s ease-in-out infinite;
 }
 
 /* Floating shadow effect */
@@ -507,7 +507,7 @@ body {
     padding: 15px;
     border-radius: 8px;
     background: #f8fafc;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .skill-item:hover {
